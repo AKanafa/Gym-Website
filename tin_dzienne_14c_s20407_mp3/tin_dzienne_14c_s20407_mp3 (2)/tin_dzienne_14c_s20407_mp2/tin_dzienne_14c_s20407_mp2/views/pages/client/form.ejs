@@ -1,0 +1,84 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate >
+        <!-- zapisywanie id strony  onsubmit="return validateForm();" -->
+        <input type="hidden" name="_id" value="<%= clients._id %>">
+        
+        <div style="display: none">
+            <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+            <span id="errorMessage-requiredNumber"><%= __('validationMessage.fieldRequiredNumber') %></span>
+            <span id="errorMessage-requiredRange"><%= __('validationMessage.fieldRequiredRange') %></span>
+            <span id="errorMessage-requiredRangePesel"><%= __('validationMessage.fieldRequiredRangePesel') %></span>
+            <span id="errorMessage-requiredSummary"><%= __('validationMessage.fieldSummary') %></span>
+         </div>
+
+        <label for="name"><%= __('client.fields.add.godnosc') %> <span class="symbol-required">*</span></label>
+        <input type="text" name="name" id="name" placeholder="<%= __('client.fields.add.placeholder') %>" value="<%= clients.name %>"
+        class="<%= validationErrors.find(e => e.path.includes('name')) ? 'error-input' : '' %>" required   
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorName" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('name'))) { %>
+                <%= __('server-errors.' + (validationErrors.find(e => e.path.includes('name'))).message) %>
+            <% } %>
+        </span>
+
+        <label for="pesel"><%= __('client.fields.add.pesel') %> <span class="symbol-required">*</span></label>
+        <input type="number" name="pesel" id="pesel" placeholder="<%= __('client.fields.add.placeholderPesel') %>" value="<%= clients.pesel %>" 
+        class="<%= validationErrors.find(e => e.path.includes('pesel')) ? 'error-input' : '' %>" required
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorPesel" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('pesel'))) { %>
+                <%= __('server-errors.' + (validationErrors.find(e => e.path.includes('pesel'))).message) %>
+            <% } %>
+        </span>
+
+        <label for="zaszczepiony"><%= __('client.fields.add.zaszczepiony') %></label>
+        <input type="text" name="zaszczepiony" placeholder="<%= __('client.fields.add.placeholderZaszczepiony') %>" id="zaszczepiony" value="<%= clients.zaszczepiony %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+        <span id="errorZaszczepiony" class="errors-text"></span>
+
+        <% if (formMode == 'showDetails') { %>
+            <div class="space">
+                <a href="/client/form-edit/<%= clients._id %>" class="list-actions-button-edit" style="padding: 8px 7px;"><%= __('form.action.edit') %></a>
+            </div>
+        <% } %> 
+    
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                <a href="/client" class="form-button-cancel"><%= __('form.action.cancel') %></a>
+            <% } else { %>
+            <a class="form-button-cancel" href="/client" style="width: 91px;"><%= __('form.action.return') %></a>
+            <% } %>
+        </div>
+    </form>
+
+    <% if (formMode == 'showDetails'){ %>
+        <br />
+        <h2><%= __('client.list.details.tableTitle') %></h2>
+        <div></div>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th><%= __('client.list.details.name') %></th>
+                    <th><%= __('client.list.details.membership') %></th>
+                    <th><%= __('client.list.details.date') %></th>
+                    <th><%= __('client.list.details.number') %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let g of clients.Registers) { %>
+                    <tr>
+                        <td><a href = "/location/form-detail/<%= g.location._id %>"><%= g.location.nazwa %></a></td>
+                        <td><%= g.oplacony ? "tak" : "nie" %></td>
+                        <td><%= g.data1.toISOString().split('T')[0] %></td>
+                        <td><%= g.numerKarnetu %></td>
+                    </tr>
+                    <% } %>  
+            </tbody>
+        </table>
+        <% } %>
+</main>
+<%- include('../../fragments/footer.ejs') %>

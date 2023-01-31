@@ -1,0 +1,37 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Nowa rejestracja</h2>
+        <form class="form">
+            <label for="client">Klient: <span class="symbol-required">*</span></label>
+            <select name="client" id="client">
+                <option value="1">Adam Kanafa</option>
+                <option value="2">Janusz Kowalski</option>
+            </select>
+            <span id="errorClient"></span>
+
+            <label for="location">lokalizacja: <span class="symbol-required">*</span></label>
+            <select name="location" id="location">
+                <option value="1">Mazowiecka 23</option>
+                <option value="2">Polna 54</option>
+            </select>
+            <span id="errorLocation"></span>
+
+            <label for="oplacony">Karnet oplacony: <span class="symbol-required">*</span></label>
+            <input  type="checkbox" name="oplacony" id="oplacony" required>
+            <span id="errorKarnet" ></span>
+
+            <label for="data1">Do kiedy wazny karnet: <span class="symbol-required">*</span></label>
+            <input  class="error-input"type="date" name="data1" id="data1" required>
+            <span  id="errorDateTo" class="errors-text">Pole jest wymagane</span>
+
+            <label  for="numerKarnetu">Numer Karnetu: <span class="symbol-required">*</span></label>
+            <input class="error-input" type="number" name="numerKarnetu" id="numerKarnetu" required>
+            <span id="errorNumberKarnet" class="errors-text">Pole jest wymagane</span>   
+
+            <div>
+                <input type="submit" class="form-button-submit" value="Dodaj" />
+                <a href="./" class="form-button-cancel">Anuluj</a>
+            </div>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,30 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2><%= __('client.list.pageTitle') %></h2>
+    <table class="table-list">
+        <tr>
+            <th><%= __('client.fields.godnosc') %></th>
+            <th><%= __('client.fields.pesel') %></th>
+            <th class="hide"><%= __('client.fields.zaszczepiony') %></th>
+            <th><%= __('client.fields.akcje') %></th>
+        </tr>
+        <tbody>
+            <% for (let c of clients){  %> <!-- klient kontroller 1 funckcja -->
+                <tr>
+                    <td><%= c.name %></td>
+                    <td><%= c.pesel %></td>
+                    <td class="hide"><%= c.zaszczepiony ? c.zaszczepiony : 'Nie podano informacji' %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/client/form-detail/<%=c._id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a></li>
+                            <li><a href="/client/form-edit/<%=c._id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></li>
+                            <li><a href="/client/delete/<%=c._id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
+                        </ul>
+                    </td>
+                </tr>
+              <% } %>
+        </tbody>
+    </table>
+    <p><a href="/client/add" class="button-add"><%= __('client.list.addNew') %></a></p>
+</main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,23 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Nowy klient</h2>
+    <form class="form" novalidate onsubmit="return validateForm();">
+        <label for="name">Godnosc: <span class="symbol-required">*</span></label>
+        <input  class="error-input" type="text" name="name" id="name" required>   
+        <span id="errorName" class="errors-text">Pole jest wymagane</span>
+
+        <label for="pesel">Pesel: <span class="symbol-required">*</span></label>
+        <input class="error-input" type="number" name="pesel" id="pesel" required>
+        <span id="errorPesel" class="errors-text">Pole jest wymagane</span>
+
+        <label for="zaszczepiony">Zaszczepiony:</label>
+        <input type="text" name="zaszczepiony" id="zaszczepiony">
+        <span id="errorZaszczepiony"></span>
+
+        <div>
+        <input type="submit" class="form-button-submit" value="Dodaj"/>
+        <a href="/client" class="form-button-cancel">Anuluj</a>
+        </div>
+    </form>
+</main>
+<%- include('../../fragments/footer.ejs') %>

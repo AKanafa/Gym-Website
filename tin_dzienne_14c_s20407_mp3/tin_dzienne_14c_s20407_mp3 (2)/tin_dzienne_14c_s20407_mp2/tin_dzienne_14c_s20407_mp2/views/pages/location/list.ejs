@@ -1,0 +1,30 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2><%= __('lokalizacja.list.pageTitle') %></h2>
+        <table class="table-list">
+            <tr>
+                <th><%= __('lokalizacja.fields.nazwa') %></th>
+                <th class="hide"><%= __('lokalizacja.fields.iloscMaszyn') %></th>
+                <th><%= __('lokalizacja.fields.iloscTrenerow') %></th>
+                <th><%= __('lokalizacja.fields.akcje') %></th>
+            </tr>
+            <tbody>
+                <% for (let lok of locations){  %> <!-- lokalizacja kontroller 1 funckcja -->
+                <tr>
+                    <td><%= lok.nazwa %></td>
+                    <td class="hide"><%= lok.iloscMaszyn %></td>
+                    <td><%= lok.iloscTrenerow %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/location/form-detail/<%=lok._id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a></li>
+                            <li><a href="/location/form-edit/<%=lok._id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></li>
+                            <li><a href="/location/delete/<%=lok._id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <p><a href="/location/add" class="button-add"><%= __('lokalizacja.list.addNew') %></a></p>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

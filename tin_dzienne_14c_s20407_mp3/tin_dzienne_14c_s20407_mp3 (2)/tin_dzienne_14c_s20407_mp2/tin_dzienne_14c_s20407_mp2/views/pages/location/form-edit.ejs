@@ -1,0 +1,23 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Edycja locationu</h2>
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <label for="nazwa">Adres: <span class="symbol-required">*</span></label>
+            <input type="text" name="nazwa" id="nazwa" placeholder="2-20 znaków" value="location#2129" required>
+            <span id="errorNazwa" class="errors-text"></span>
+
+            <label for="iloscTrenerow">Ilosc Trenerow: <span class="symbol-required">*</span></label>
+            <input type="number" name="iloscTrenerow" id="iloscTrenerow" placeholder="1-1000" value="23" required>
+            <span id="errorIloscTrenerow" class="errors-text"></span>
+
+            <label for="iloscMaszyn">Ilosc maszyn: <span class="symbol-required">*</span></label>
+            <input type="number" name="iloscMaszyn" id="iloscMaszyn" placeholder="1-1000" value="40" required>
+            <span id="errorDostepnychMaszyn" class="errors-text"></span>
+
+            <div>
+                <input type="submit" class="form-button-submit" value="Dodaj"/>
+                <a href="/location" class="form-button-cancel">Anuluj</a>
+            </div>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

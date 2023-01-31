@@ -1,0 +1,43 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Szczegóły klienta</h2>
+        <form class="form">
+            <label for="name">Godnosc:</label>
+            <input type="text" name="name" id="name" value="Adam Kanafa" disabled>
+            <span id="errorName"></span>
+
+            <label for="pesel">Pesel:</label>
+            <input type="number" name="pesel" id="pesel" value="12345678909" disabled>
+            <span id="errorPesel"></span>
+
+            <label for="zaszczepiony">Zaszczepiony:</label>
+            <input type="text" name="zaszczepiony" id="zaszczepiony" value="tak" disabled>
+            <span id="errorZaszczepiony"></span>
+
+            <div class="space">
+                <a href="/client/form-edit" class="list-actions-button-edit">Edytuj</a>
+            </div>
+        </form>
+        <h2>Szczegóły przypisanej silowni</h2>
+        <table class="table-list">
+            <tr>
+                <th>Nazwa lokalizacji</th>
+                <th>Karnet oplacony</th>
+                <th>Do kiedy wazny</th>
+                <th>Numer karnetu</th> 
+            </tr>
+            <tbody>
+                <tr>
+                    <td>Mazowiecka 23</td>
+                    <td>nie</td>
+                    <td>2021-10-11</td>
+                    <td>111</td>
+                </tr>
+                <!--dodatkowe wiersze-->
+            </tbody>
+        </table>
+        <div class="space">
+            <a href="/client"class="list-actions-button-details">Powrót</a>
+        </div>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,171 @@
+{
+	"main-page": {
+		"content": "Strona główna",
+		"title": "Silownia Duzy Biceps",
+		"text": "to jest strona o silowni"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"client": "Klienci",
+		"location": "Lokalizacja",
+		"register": "Rejestracja"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"action": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
+	"client": {
+		"fields": {
+			"godnosc": "Godnosc",
+			"zaszczepiony": "Zaszczepiony",
+			"pesel": "Pesel",
+			"akcje": "Akcje",
+			"add": {
+				"pesel": "Pesel: ",
+				"zaszczepiony": "Zaszczepiony: ",
+				"godnosc": "Godnosc: ",
+				"placeholder": "2-20 znaków",
+				"placeholderZaszczepiony": "np. tak",
+				"placeholderPesel": "np. 12345678912"
+			}
+		},
+		"list": {
+			"pageTitle": "Lista klientów",
+			"details": {
+				"title": "Siłownie do ktorych jest przypisany klient",
+				"name": "Nazwa lokalizacji",
+				"membership": "Karnet opłacony",
+				"date": "Do kiedy ważny",
+				"number": "Numer karnetu",
+				"tableTitle": "Siłownie do których jest przypisany klient"
+			},
+			"addNew": "Dodaj klienta"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie klienta",
+				"btnLabel": "Dodaj klienta"
+			},
+			"detail": {
+				"pageTitle": "Szczegóły klientów"
+			},
+			"edit": {
+				"pageTitle": "Edycja klienta",
+				"btnLabel": "Edytuj klienta"
+			}
+		}
+	},
+	"footer": {
+		"author": "Adam, Kanafa, s20407,"
+	},
+	"lokalizacja": {
+		"fields": {
+			"nazwa": "Nazwa ulicy",
+			"iloscMaszyn": "Liczba maszyn",
+			"iloscTrenerow": "Liczba trenerów",
+			"akcje": "Actions",
+			"add": {
+				"nazwa": "Nazwa ulicy:",
+				"placeholder": "2-20 znaków",
+				"iloscMaszyn": "Liczba maszyn:",
+				"iloscTrenerow": "Liczba trenerów:",
+				"placeholderNumber": "1-1000"
+			}
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie lokalizacji",
+				"btnLabel": "Dodaj lokalizacje"
+			},
+			"detail": {
+				"pageTitle": "Szczegóły lokalizacji"
+			},
+			"edit": {
+				"pageTitle": "Edycja lokalizacji",
+				"btnLabel": "Edytuj lokalizacje"
+			}
+		},
+		"list": {
+			"pageTitle": "Lista lokalizacji",
+			"details": {
+				"title": "Klienci przypisani do siłowni",
+				"name": "Godność klienta",
+				"membership": "Czy opłacony",
+				"date": "Do kiedy ważny",
+				"number": "Numer karnetu",
+				"tableTitle": "Klienci przypisani do siłowni"
+			},
+			"addNew": "Dodaj lokalizacje"
+		}
+	},
+	"rejestracja": {
+		"fields": {
+			"nazwaKlienta": "Godność klienta",
+			"nazwaLokalizacji": "Lokalizacja",
+			"karnet": "Czy opłacony karnet",
+			"data": "Do kiedy ważny karnet",
+			"numer": "Numer karnetu",
+			"akcje": "Akcje",
+			"add": {
+				"klient": "Godność klienta:",
+				"klientWybierz": "--- Wybierz klienta ---",
+				"lokalizacja": "Lokalizacja:",
+				"lokalizacjaWybierz": "--- Wybierz lokalizacje ---",
+				"karnet": "Czy opłacony karnet na siłownię?",
+				"data": "Do kiedy ważny karnet:",
+				"numer": "Numer karnetu:"
+			}
+		},
+		"list": {
+			"addNew": "Dodaj rejestracje",
+			"pageTitle": "Rejestracje"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie rejestracji",
+				"btnLabel": "Dodaj rejestracje"
+			},
+			"detials": {
+				"pageTitle": "Szczegóły rejestracji"
+			},
+			"edit": {
+				"pageTitle": "Edycja rejestracji",
+				"btnLabel": "Edytuj rejestracje"
+			},
+			"list": {
+				"pageTitle": "Rejestracje"
+			}
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "Pole jest wymagane",
+		"fieldRequiredRange": "Wprowadz 2-20 znaków",
+		"fieldRequiredRangeNumber": "Wprowadz liczbę z zakresu 1-1000",
+		"requiredDateNumber": "Wpisz dzisiejsza lub pozniejszą datę",
+		"fieldRequiredRangePesel": "Wpisz 11 cyfr",
+		"fieldRequiredRangeCard": "Wprowadz liczbę z zakresu 1-9999",
+        "fieldRequiredNumber" : "Wprowadz tylko liczby",
+        "fieldSummary": "Formularz zawiera błędy"
+	},
+	"server-errors": {
+		"fieldRequired": "Pole jest wymagane",
+		"fieldRequiredRange": "Wpisz 2-20 znaków",
+		"fieldRequiredRangeNumber": "Wpisz liczby z zakresu 1-1000",
+		"requiredDateNumber": "Wpisz dzisiesza lub pozniejsza date",
+		"fieldRequiredRangePesel": "Wpisz 11 cyfr",
+		"fieldRequiredRangeCard": "wpisz liczby z zakresu 1-9999",
+		"fieldRequiredNumber": "Wpisz tylko liczby",
+		"fieldSummary": "Formularz zawiera bledy"
+	}
+}

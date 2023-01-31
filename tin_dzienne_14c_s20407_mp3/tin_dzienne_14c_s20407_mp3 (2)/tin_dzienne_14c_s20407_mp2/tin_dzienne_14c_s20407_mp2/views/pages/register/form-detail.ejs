@@ -1,0 +1,38 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Szczegóły rejestracji</h2>
+        <form class="form">
+            <label for="oplacony">Karnet oplacony</label>
+            <input type="checkbox" name="oplacony" id="oplacony"   checked disabled>
+            <span id="errorKarnet"></span>
+
+            <label for="data1">Do kiedy wazny karnet: </label>
+            <input type="date" name="data1" id="data1" value="10" disabled>
+            <span id="errorDateTo" class="errors-text"></span>
+
+            <label for="numerKarnetu">Numer Karnetu: </label>
+            <input type="number" name="numerKarnetu" id="numerKarnetu" value="12" disabled>
+            <span id="errorNumberKarnet" class="errors-text"></span>
+
+            <div class="space">
+                <a href="/register/form-edit" class="list-actions-button-edit">Edytuj</a>
+            </div>
+        </form>
+        <h2></h2>
+        <form disabled class="form">
+            <label for="client" style="font-weight: bold;">Godnosc: </label>
+            <input type="text" name="client" id="client" value="Adam Kanafa" disabled>
+            <span id="errorClient" class="errors-text"></span>
+        </form>
+        <br />
+        <form disabled class="form">
+            <label for="location" style="font-weight: bold;">lokalizacja: </label>
+            <input type="text" name="location" id="location" value="Mazowiecka 23" disabled>
+            <span id="errorLocation" class="errors-text"></span>
+            <br />
+        </form>
+        <div class="space">
+            <a href="./" class="list-actions-button-details">Powrót</a>
+        </div>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

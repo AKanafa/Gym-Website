@@ -1,0 +1,93 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate >
+
+            <input type="hidden" name="_id" value="<%= Register._id %>">          
+            
+            <div style="display: none">
+                <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+                <span id="errorMessage-requiredSummary"><%= __('validationMessage.fieldSummary') %></span>
+                <span id="errorMessage-requiredDate"><%= __('validationMessage.requiredDateNumber') %></span>
+                <span id="errorMessage-requiredkarnet"><%= __('validationMessage.fieldRequiredRangeCard') %></span>
+            </div>
+
+            <label for="client"><%= __('rejestracja.fields.add.klient') %> <span class="symbol-required">*</span></label>
+            <select name="client" id="client" 
+            class="<%= validationErrors.find(e => e.path.includes('client')) ? 'error-input' : '' %>"
+            required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                <option value="" <%= !Register.client_id ? 'selected' : '' %>><%= __('rejestracja.fields.add.klientWybierz') %></option>
+                <% allClients.forEach(cli => { %>
+                    <option value="<%= cli._id %>" label="<%= cli.name %>"
+                    <%= (cli._id.toString() == Register.client_id?.toString()) ? 'selected' : '' %>>
+                </option>
+                <% }) %>
+            </select>
+            <span id="errorClient" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('client'))) { %>
+                    <%=  __('server-errors.' + (validationErrors.find(e => e.path.includes('client'))).message) %>
+                <% } %>
+            </span>
+           
+
+            <label for="location"><%= __('rejestracja.fields.add.lokalizacja') %> <span class="symbol-required">*</span></label>
+            <select name="location" id="location" 
+            class="<%= validationErrors.find(e => e.path.includes('location')) ? 'error-input' : '' %>"
+            required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                <option value="" <%= !Register.location?._id ? 'selected' : '' %>><%= __('rejestracja.fields.add.lokalizacjaWybierz') %></option>
+                    <% alllocations.forEach(loc => { %>
+                        <option value="<%= loc._id %>" label="<%= loc.nazwa %>"
+                        <%= (loc._id == Register.location_id) ? 'selected' :  '' %>></option>
+                    <% }) %>
+            </select>
+            <span id="errorLocation" class="errors-text" >
+                <% if (validationErrors.find(e => e.path.includes('location'))) { %>
+                    <%=  __('server-errors.' +(validationErrors.find(e => e.path.includes('location'))).message) %>
+                <% } %>
+            </span>
+            
+            <label for="oplacony"><%= __('rejestracja.fields.add.karnet') %> <span class="symbol-required">*</span></label>
+            <% let checked = Register.oplacony ? "checked" : "" %>
+            <input type="checkbox" name="oplacony" id="oplacony" value="<%= Register.oplacony %>" <%= checked %>
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorKarnet" class="errors-text"></span>
+
+            <label for="data1"><%= __('rejestracja.fields.add.data') %> <span class="symbol-required">*</span></label>
+            <input type="date" name="data1" id="data1" value="<%= fmt.formatDate(Register.data1)  %>" 
+            class="<%= validationErrors.find(e => e.path.includes('data1')) ? 'error-input' : '' %>"required
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorDateTo" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('data1'))) { %>
+                    <%= __('server-errors.' +( validationErrors.find(e => e.path.includes('data1'))).message) %>
+                <% } %>
+            </span>
+
+            <label for="numerKarnetu"><%= __('rejestracja.fields.add.numer') %> <span class="symbol-required">*</span></label>
+            <input type="number" name="numerKarnetu" id="numerKarnetu" value="<%= Register.numerKarnetu %>" 
+            class="<%= validationErrors.find(e => e.path.includes('numerKarnetu')) ? 'error-input' : '' %>"required
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorNumberKarnet" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('numerKarnetu'))) { %>
+                    <%=__('server-errors.' +( validationErrors.find(e => e.path.includes('numerKarnetu'))).message) %>
+                <% } %>
+            </span>
+
+            
+            <% if (formMode == 'showDetails') { %>
+                <div class="space">
+                    <a href="/register/form-edit/<%= Register._id %>" class="list-actions-button-edit" style="padding: 8px 7px;"><%= __('form.action.edit') %></a>
+                </div>
+            <% } %> 
+
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a href="/register" class="form-button-cancel"><%= __('form.action.cancel') %></a>
+                <% } else { %>
+                <a class="form-button-cancel" href="/register" style="width: 91px;"><%= __('form.action.return') %></a>
+                <% } %>
+            </div>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

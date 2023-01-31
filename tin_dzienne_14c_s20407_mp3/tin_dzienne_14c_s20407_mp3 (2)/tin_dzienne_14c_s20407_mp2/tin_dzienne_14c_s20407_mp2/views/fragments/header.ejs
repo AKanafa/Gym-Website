@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+<link rel="stylesheet" href="/css/style.css"/>
+<link rel="shortcut icon" href="#">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<script type="application/javascript" src="../../js/validationCommon.js"></script>
+
+<% if(navLocation == 'clients'){ %>
+    <script type="application/javascript" src="../../js/validationClientForm.js"></script>
+  <% } %>
+  <% if(navLocation == 'register'){ %>
+    <script type="application/javascript" src="../../js/validationRegisterForm.js"></script>
+  <% } %>
+  <% if(navLocation == 'location'){ %>
+    <script type="application/javascript" src="../../js/validationLocationForm.js"></script>
+  <% } %>
+<title>Silownia Duzy Biceps</title>
+    </head>
+<body>
+<header>
+    <h1><%= __('main-page.title') %></h1>
+    <img src="/images/logo.jpg" id="logo_on_index" alt="Silownia Duzy Biceps Logo">
+</header>
+<nav>
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
+        <li><a href="/client" class="<%= navLocation == 'clients' ? 'active' : ''%>"><%= __('nav.client') %></a></li>
+        <li><a href="/location" class="<%= navLocation == 'location' ? 'active' : ''%>"><%= __('nav.location') %></a></li>
+        <li><a href="/register" class="<%= navLocation == 'register' ? 'active' : ''%>"><%= __('nav.register') %></a></li>
+
+        <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+        <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
+    </ul>
+</nav>

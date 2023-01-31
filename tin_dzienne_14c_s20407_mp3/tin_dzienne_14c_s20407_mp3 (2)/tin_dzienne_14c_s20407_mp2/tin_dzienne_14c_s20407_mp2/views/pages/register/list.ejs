@@ -1,0 +1,40 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2><%= __('rejestracja.list.pageTitle') %></h2>
+        <table class="table-list">
+            <tr>
+                <th><%= __('rejestracja.fields.nazwaKlienta') %></th>
+                <th><%= __('rejestracja.fields.nazwaLokalizacji') %></th>
+                <th class="hide"><%= __('rejestracja.fields.karnet') %></th>
+                <th class="hide"><%= __('rejestracja.fields.data') %></th>
+                <th><%= __('rejestracja.fields.numer') %></th>
+                <th><%= __('rejestracja.fields.akcje') %></th>
+            </tr>
+            <tbody>
+                <% for (let reg of registers){  %>  <!-- rejestracja kontroller 1 funckcja -->
+                <tr>
+                    <td><%= reg.client.name %></td>
+                    <td><%= reg.location.nazwa %></td>
+                    <td class="hide"><%= reg.oplacony ? "tak" : "nie" %></td>
+                    <td class="hide"><%= fmt.formatDate(reg.data1) %></td>
+                    <td><%= reg.numerKarnetu %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/register/form-detail/<%=reg._id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                            </li>
+                            <li>
+                                <a href="/register/form-edit/<%=reg._id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                            </li>
+                            <li>
+                                <a href="/register/delete/<%=reg._id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <p><a href="/register/add" class="button-add"><%= __('rejestracja.list.addNew') %></a></p>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

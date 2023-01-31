@@ -1,0 +1,43 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Szczegóły locationu</h2>
+        <form class="form">
+            <label for="nazwa">Adres:</label>
+            <input type="text" name="nazwa" id="nazwa" value="location#2190120" disabled>
+            <span id="errorNazwa"></span>
+
+            <label for="iloscTrenerow">Ilosc Trenerow:</label>
+            <input type="date" name="iloscTrenerow" id="iloscTrenerow" value="2021-10-10" disabled>
+            <span id="errorIloscTrenerow"></span>
+
+            <label for="iloscMaszyn">Ilosc maszyn</label>
+            <input type="checkbox" name="iloscMaszyn" id="iloscMaszyn" checked disabled>
+            <span id="errorDostepnychMaszyn"></span>
+
+            <div class="space">
+                <a href="/location/form-edit" class="list-actions-button-edit">Edytuj</a>
+            </div>
+        </form>
+        <h2>Szczegóły klienta</h2>
+        <table class="table-list">
+            <tr>
+                <th>Nazwa klienta</th>
+                <th>Karnet oplacony</th>
+                <th>Do kiedy oplacony</th>
+                <th>Numer karnetu</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>Adam Kanafa</td>
+                    <td>true</td>
+                    <td>2021-10-11</td>
+                    <td>111</td>
+                </tr>
+                <!--dodatkowe wiersze-->
+            </tbody>
+        </table>
+        <div class="space">
+            <a href="/location" class="list-actions-button-details">Powrót</a>
+        </div>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

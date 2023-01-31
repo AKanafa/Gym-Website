@@ -1,0 +1,108 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate  >
+            
+            <input type="hidden" name="_id" value="<%= location._id %>">
+
+            <div style="display: none">
+                <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+                <span id="errorMessage-requiredRangeNumber"><%= __('validationMessage.fieldRequiredRangeNumber') %></span>
+                <span id="errorMessage-requiredRange"><%= __('validationMessage.fieldRequiredRange') %></span>
+                <span id="errorMessage-requiredSummary"><%= __('validationMessage.fieldSummary') %></span>
+                <span id="errorMessage-requiredNumber"><%= __('validationMessage.fieldRequiredNumber') %></span>
+             </div>
+            
+            <label for="nazwa"><%= __('lokalizacja.fields.add.nazwa') %> <span class="symbol-required">*</span></label>
+            <input type="text" name="nazwa" id="nazwa" placeholder="<%= __('lokalizacja.fields.add.placeholder') %>" value="<%= location.nazwa %>"
+            class="<%= validationErrors.find(e => e.path.includes('nazwa')) ? 'error-input' : '' %>" required
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorNazwa" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('nazwa'))) { %>
+                    <%= __('server-errors.' + (validationErrors.find(e => e.path.includes('nazwa'))).message) %>
+                <% } %>
+            </span>
+
+            <label for="iloscTrenerow"><%= __('lokalizacja.fields.add.iloscTrenerow') %> <span class="symbol-required">*</span></label>
+
+            <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+                <input type="number" name="iloscTrenerow" id="iloscTrenerow" placeholder=" <%= __('lokalizacja.fields.add.placeholderNumber') %>" value="<%= location.iloscTrenerow %>" 
+                class="<%= validationErrors.find(e => e.path.includes('iloscTrenerow')) ? 'error-input' : '' %>"required
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <% } else { %>
+                <input type="number" name="iloscTrenerow" id="iloscTrenerow" placeholder="<%= __('lokalizacja.fields.add.placeholderNumber') %>" value="<%= location.iloscTrenerow %>"
+                class="<%= validationErrors.find(e => e.path.includes('iloscTrenerow')) ? 'error-input' : '' %>" required
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <% } %>
+
+            <span id="errorIloscTrenerow" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('iloscTrenerow'))) { %>
+                    <%=  __('server-errors.' + (validationErrors.find(e => e.path.includes('iloscTrenerow'))).message) %>
+                <% } %>
+            </span>
+
+
+            <label for="iloscMaszyn"><%= __('lokalizacja.fields.add.iloscMaszyn') %> <span class="symbol-required">*</span></label>
+
+            <% if (formMode == 'showDetails' || formMode == 'create') { %>
+                <input type="number" name="iloscMaszyn" id="iloscMaszyn" placeholder="<%= __('lokalizacja.fields.add.placeholderNumber') %>" value="<%= location.iloscMaszyn %>" 
+                class="<%= validationErrors.find(e => e.path.includes('iloscMaszyn')) ? 'error-input' : '' %>"required
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <% } else { %>
+                <input type="number" name="iloscMaszyn" id="iloscMaszyn" placeholder="<%= __('lokalizacja.fields.add.placeholderNumber') %>" value="<%= location.iloscMaszyn %>"
+                class="<%= validationErrors.find(e => e.path.includes('iloscMaszyn')) ? 'error-input' : '' %>" required
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <% } %>
+
+            <span id="errorDostepnychMaszyn" class="errors-text">
+                <% if (validationErrors.find(e => e.path.includes('iloscMaszyn'))) { %>
+                    <%=  __('server-errors.' + (validationErrors.find(e => e.path.includes('iloscMaszyn'))).message) %>
+                <% } %>
+            </span>
+
+            
+            
+            
+            <% if (formMode == 'showDetails') { %>
+                <div class="space">
+                    <a href="/location/form-edit/<%= location._id %>" style="padding: 8px 7px;" class="list-actions-button-edit"><%= __('form.action.edit') %></a>
+                </div>
+            <% } %> 
+            
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>"/>
+                    <a href="/location" class="form-button-cancel"><%= __('form.action.cancel') %></a>
+                    <% } else { %>
+                        <a class="form-button-cancel" style="width: 91px;" href="/location"><%= __('form.action.return') %></a>
+                        <% } %>
+                    </div>
+                </form>
+        <% if (formMode == 'showDetails'){ %>
+        <br />
+        <h2><%= __('lokalizacja.list.details.tableTitle') %></h2>
+        <div></div>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th><%= __('lokalizacja.list.details.name') %></th>
+                    <th><%= __('lokalizacja.list.details.membership') %></th>
+                    <th><%= __('lokalizacja.list.details.date') %></th>
+                    <th><%= __('lokalizacja.list.details.number') %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let m of location.Registers) { %>
+                    <tr>
+                        <td><a href = "/client/form-detail/<%= m.client._id %>"><%= m.client.name %></a></td>
+                        <td><%= m.oplacony ? "tak" : "nie" %></td>
+                        <td><%= m.data1.toISOString().split('T')[0] %></td>
+                        <td><%= m.numerKarnetu %></td>
+                    </tr>
+                    <% } %>  
+            </tbody>
+        </table>
+        <% } %>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

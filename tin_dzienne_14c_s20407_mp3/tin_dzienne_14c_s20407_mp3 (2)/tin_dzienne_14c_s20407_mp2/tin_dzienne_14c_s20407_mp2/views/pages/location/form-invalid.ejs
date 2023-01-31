@@ -1,0 +1,23 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2>Nowy location</h2>
+        <form class="form">
+            <label for="nazwa">Adres: <span class="symbol-required">*</span></label>
+            <input class="error-input" type="text" name="nazwa" id="nazwa" required>
+            <span id="errorNazwa" class="errors-text">Pole jest wymagane</span>
+
+            <label for="iloscTrenerow">Ilosc Trenerow: <span class="symbol-required">*</span></label>
+            <input class="error-input" type="number" name="iloscTrenerow" id="iloscTrenerow" required>
+            <span id="errorIloscTrenerow" class="errors-text">Pole jest wymagane</span>
+
+            <label for="iloscMaszyn">Ilosc maszyn: <span class="symbol-required">*</span></label>
+            <input class="error-input" type="number" name="iloscMaszyn" id="iloscMaszyn">
+            <span id="errorDostepnychMaszyn" class="errors-text">Pole jest wymagane</span>
+
+            <div>
+                <input type="submit" class="form-button-submit" value="Dodaj" />
+                <a href="/location" class="form-button-cancel">Anuluj</a>
+            </div>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

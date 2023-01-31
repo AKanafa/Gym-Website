@@ -1,0 +1,37 @@
+﻿<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2><%= pageTitle %>></h2>
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <label for="client">Klient: <span class="symbol-required">*</span></label>
+            <select name="client" id="client">
+                <option value="1">Adam Kanafa</option>
+                <option value="2">Janusz Kowalski</option>
+            </select>
+            <span id="errorClient"></span>
+
+            <label for="location">lokalizacja: <span class="symbol-required">*</span></label>
+            <select name="location" id="location">
+                <option value="1">Mazowiecka 23</option>
+                <option value="2" selected>Polna 54</option>
+            </select>
+            <span id="errorLocation"></span>
+
+            <label for="oplacony">Karnet oplacony</label>
+            <input type="checkbox" name="oplacony" id="oplacony" checked required>
+            <span id="errorKarnet"></span>
+
+            <label for="data1">Do kiedy wazny karnet: <span class="symbol-required">*</span></label>
+            <input type="date" name="data1" id="data1" value="10" required>
+            <span id="errorDateTo" class="errors-text"></span>
+
+            <label for="numerKarnetu">Numer Karnetu: <span class="symbol-required">*</span></label>
+            <input type="number" name="numerKarnetu" id="numerKarnetu" value="12" required>
+            <span id="errorNumberKarnet" class="errors-text"></span>
+
+            <div>
+                <input type="submit" class="form-button-submit" value="Dodaj" />
+                <a href="/register" class="form-button-cancel">Anuluj</a>
+            </div>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs') %>

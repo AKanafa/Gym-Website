@@ -1,0 +1,510 @@
+html
+{
+    background-color: #cdeba7;
+    font-family: sans-serif;
+    
+}
+
+body
+{
+  min-width: 360px;
+}
+
+
+
+main
+{
+    background-color: white;
+    border-radius: 25px;
+}
+
+img 
+{
+    margin-right: 50px;
+    width: 120px;
+    height: 120px;
+}
+
+header,
+main,
+footer,
+nav 
+{
+    margin: 1rem;
+}
+
+header, 
+footer
+{
+    background-color: #cedf62;
+	color: white;
+	padding: 1rem;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav 
+{
+	background-color: #26abb2;
+}
+/*
+brak tego rozwala glowne przyciski, zamiast poziomo to pionowa sa
+*/
+nav ul 
+{
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+}
+/*
+zwieksza odstepy pomiedzy przyciskami na gorze
+*/
+nav ul li a 
+{
+    display: inline-block;
+	color: #ffffff;
+	padding: 1rem 2rem;
+	text-decoration: none;
+}
+
+nav ul li a:hover 
+{
+    background-color: #fe7f00;
+	color: #ecf0f1;
+}
+/*
+pokazuje ktora strona jest aktywna
+*/
+nav ul li a.active 
+{
+    background-color: #003153;
+	color: #ecf0f1;
+}
+/*
+daje margines z kazdej strony w bialym tle na kazdej stronie
+*/
+main 
+{
+    padding: 1.5rem;
+}
+/*
+wysrodkowuje stopke na dole
+*/
+footer
+{
+    text-align: center;
+}
+/*
+to jest linia pod np "lista klientow"
+*/
+main h2
+{
+    border-bottom: 1px solid #7f8c8d;
+    margin-bottom: 2rem;
+}
+/*
+
+Rozciągnięcie tabeli na całą szerokość pola oraz złączenie obramowań komórek
+*/
+.table-list 
+{
+    border-collapse: collapse;
+    color:#2c3e50;
+    width: 100%;
+}
+/*
+Obramowanie tabeli oraz komórek:
+*/
+.table-list,
+.table-list th,
+.table-list td 
+{
+    border: 1.5px solid grey;
+}
+/*
+Odsunięcie zawartości komórek od obramowania:
+*/
+.table-list th,
+.table-list td
+{
+    padding: 0.5rem;
+}
+
+
+/* 
+Ustalenie koloru tła nagłówka i naprzemiennych wierszy:
+  */
+  .table-list th,
+  .table-list tbody tr:nth-child(even)
+  {
+      background-color: #ecf0f1;
+  }
+/* 
+zmniejsza marginesy w tabelce akcje
+  */
+.list-actions
+{
+    margin: 0;
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+}
+/* 
+potencjalna linijka od zmieniania ulozenia przyciskow, tak to chyba to, 
+inline -block slucha powyzej text-align: center
+  */
+  .list-actions li
+  {
+    display: inline-block;
+  }
+/* 
+odpowiada tylko za wyglad/wielkosc przyciskow
+  */
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete
+{
+    display: inline-block;
+    width: 75px;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 25px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+/* 
+odstepy od przyciskow
+  */
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete
+{
+    margin-right: 0.5rem;
+}
+
+.list-actions-button-details 
+{
+    background-color: #2980b9;    
+}
+.list-actions-button-details:hover 
+{
+    background-color: #3498db;
+}
+
+.list-actions-button-edit 
+{
+    background-color: #f39c12;
+}
+
+.list-actions-button-edit:hover 
+{
+    background-color: #f1c40f
+}
+
+.list-actions-button-delete 
+{
+    background-color: #c0392b;
+}
+
+.list-actions-button-delete:hover 
+{
+    background-color: #e74c3c;
+    
+}
+
+/* 
+nigdzie nie wykorzystuje
+  */
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete,
+.button-add
+{
+    border: none;
+    border-radius: 25px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+/* 
+nigdzie nie wykorzystuje
+  */
+.button-add
+{
+    padding: 0.5rem 1rem;
+    background-color: #27ae60;
+    
+}
+
+
+.button-add:hover
+{
+    background-color: #2ecc71;
+}
+
+/* 
+odpowiada za czcionke w textboxach
+  */
+button, 
+input, 
+select, 
+textarea 
+{ 
+    font-family: inherit; 
+    font-size: 100%; 
+    box-sizing: border-box; 
+    padding: 0; margin: 0; 
+}
+
+textarea 
+{ 
+    overflow: auto; 
+}
+
+/* 
+Zdefiniowanie właściwości formularza:
+  */
+.form
+{
+    margin-left: 2rem;
+    display: grid;
+    grid-template-columns: 165px 300px 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+
+
+/* 
+Zdefiniowanie właściwości wspólnych dla pól formularza:
+zmienia ogolnie w wlasciwosci text boxow, np zmienia kolor slow albo zaokragla prostokaty
+  */
+.form select, 
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="date"],
+.form input[type="email"]
+{
+    border: 1px solid #7f8c8d;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #f2f2f2;
+}
+
+.form label
+{
+    display: block;
+    margin-top: 0.5em;
+    
+}
+
+.form-group
+{
+    margin-bottom: 1rem;
+}
+
+.symbol-required {
+	color: #fc0000;
+}
+
+.form-buttons
+{
+    margin-top: 2rem;
+    grid-column: 1 / span 2;
+    grid-column-end: -1;
+}
+
+/* 
+to samo tylko co wczesniej tylko zamiast dodac button submit i cancel to zrobilem na nowo xD
+jednak nie, to zmienia przyciski, napisy w przyciskach i np wielkosc
+  */
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete,
+.button-add,
+.form-button-submit,
+.form-button-cancel 
+{
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.button-add,
+.form-button-submit,
+.form-button-cancel
+{
+    padding: 0.5rem 1rem;
+}
+
+.button-add,
+.form-button-submit
+{
+    background-color: #27ae60;
+}
+
+.button-add:hover,
+.form-button-submit:hover
+{
+    background-color: #2ecc71;
+}
+
+.form-button-cancel,
+.list-actions-button-delete 
+{
+    background-color: #db4242;
+}
+
+.form-button-cancel:hover,
+.list-actions-button-delete:hover 
+{
+    background-color: #da1919;
+}
+
+.form-button-submit,
+.form-button-cancel 
+{
+    width: 100%;
+}
+
+.form-button-cancel
+{
+    box-sizing: border-box;
+    display: block;
+}
+
+.form-button-submit
+{
+    margin-bottom: 0.5rem;
+}
+
+.errors-text
+{
+    font-size: 0.85rem;
+    line-height: 2.5rem;
+    color: #c0392b;
+}
+
+.form input.error-input,
+.form select.error-input
+{
+    border: 3px solid #e74c3c;
+}
+
+
+@media all and (max-width: 1000px)
+{
+    header
+    {
+        flex-direction: column;
+    }
+
+    header h1
+    {
+        text-align: center;
+    } 
+
+    header img
+    {
+        align-self: center;
+    }
+    
+    nav ul
+    {
+        flex-wrap: wrap;
+    }
+
+    nav ul li
+    {
+        flex-basis: 50%;
+        text-align: center;
+    }
+
+    nav ul li a
+    {
+        display: block;
+    }
+    
+    .form 
+    {
+        margin-left: unset;
+        display: block;
+    }
+
+    .form .errors-text
+    {
+        margin-bottom: 1rem;
+    }
+    
+    .form-buttons
+    {
+        grid-column: 1 / span 1;
+    }
+}
+
+
+@media all and (max-width: 500px)
+{
+    body, 
+    nav, 
+    nav ul, 
+    header, 
+    main, 
+    footer
+    {
+        margin: 0;
+    }
+    
+    nav ul li
+    {
+        flex-basis: 100%;
+    }
+    
+    main,
+    header,
+    footer
+    {
+        border-radius: 0px;
+    }
+    
+    header
+    {
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+    
+    footer
+    {
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+    
+    nav
+    {
+        margin-top: 20px;
+        border-radius: 25px;
+    }
+    
+    .form 
+    {
+        margin-left: unset;
+        display: block;
+    }
+
+    .hide {
+        display: none;
+      }
+}

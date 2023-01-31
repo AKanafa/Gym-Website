@@ -1,0 +1,171 @@
+{
+	"main-page": {
+		"content": "Main Page",
+		"title": "Gym Big Biceps",
+		"text": "this is website about gym"
+	},
+	"nav": {
+		"main-page": "Main Page",
+		"client": "Clients",
+		"location": "Locations",
+		"register": "Registers"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"action": {
+			"return": "Back",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"client": {
+		"fields": {
+			"godnosc": "Dignity",
+			"zaszczepiony": "Vaccinated",
+			"pesel": "Pesel",
+			"akcje": "Actions",
+			"add": {
+				"pesel": "Pesel: ",
+				"zaszczepiony": "Vaccinated: ",
+				"godnosc": "Dignity: ",
+				"placeholder": "2-20 characters",
+				"placeholderZaszczepiony": "e.g. yes",
+				"placeholderPesel": "e.g. 12345678913"
+			}
+		},
+		"list": {
+			"pageTitle": "List of Clients",
+			"details": {
+				"title": "Gyms to which the client is assigned",
+				"name": "Location name",
+				"membership": "Paid gym membership",
+				"date": "Membership expiration date",
+				"number": "Membership card number",
+				"tableTitle": "Gyms to which the client is assigned"
+			},
+			"addNew": "Add Client"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a client",
+				"btnLabel": "Add a client"
+			},
+			"detail": {
+				"pageTitle": "Details of Client"
+			},
+			"edit": {
+				"pageTitle": "Edit of client",
+				"btnLabel": "Edit client"
+			}
+		}
+	},
+	"footer": {
+		"author": "Adam, Kanafa, s20407,"
+	},
+	"lokalizacja": {
+		"fields": {
+			"nazwa": "Street name",
+			"iloscMaszyn": "Number of machines",
+			"iloscTrenerow": "Number of trainers",
+			"akcje": "Actions",
+			"add": {
+				"nazwa": "Street name:",
+				"placeholder": "2-20 characters",
+				"iloscMaszyn": "Number of machines:",
+				"iloscTrenerow": "Number of trainers:",
+				"placeholderNumber": "1-1000"
+			}
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a location",
+				"btnLabel": "Add location"
+			},
+			"detail": {
+				"pageTitle": "Details of location"
+			},
+			"edit": {
+				"pageTitle": "Edit of location",
+				"btnLabel": "Edit location"
+			}
+		},
+		"list": {
+			"pageTitle": "List of locations",
+			"details": {
+				"title": "Clients assigned to the gym",
+				"name": "Client name",
+				"membership": "Paid gym membership",
+				"date": "Membership expiration date",
+				"number": "Membership card number",
+				"tableTitle": "Gyms to which the client is assigned"
+			},
+			"addNew": "Add location"
+		}
+	},
+	"rejestracja": {
+		"fields": {
+			"nazwaKlienta": "Client name",
+			"nazwaLokalizacji": "Location name",
+			"karnet": "Paid gym membership",
+			"data": "Membership expiration date",
+			"numer": "Membership card number",
+			"akcje": "Actions",
+			"add": {
+				"klient": "Client name:",
+				"klientWybierz": "--- Choose client ---",
+				"lokalizacja": "Location name:",
+				"lokalizacjaWybierz": "--- Choose location ---",
+				"karnet": "Paid gym membership?",
+				"data": "Membership expiration date:",
+				"numer": "Membership card number:"
+			}
+		},
+		"list": {
+			"addNew": "Add register",
+			"pageTitle": "Registers"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a Register",
+				"btnLabel": "Add Register"
+			},
+			"detials": {
+				"pageTitle": "Details of Register"
+			},
+			"edit": {
+				"pageTitle": "Edit of Register",
+				"btnLabel": "Edit Register"
+			},
+			"list": {
+				"pageTitle": "Registers"
+			}
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "Field is required",
+		"fieldRequiredRange": "Insert 2-20 characters",
+		"fieldRequiredRangeNumber": "Insert number from 1-1000",
+		"requiredDateNumber": "Insert today's date or later",
+		"fieldRequiredRangePesel": "type 11 numbers",
+		"fieldRequiredRangeCard": "Insert number from 1-9999",
+		"fieldRequiredNumber": "Insert only numbers",
+		"fieldSummary": "Form contains errors"
+	},
+	"server-errors": {
+		"fieldRequired": "Field is required",
+		"fieldRequiredRange": "Insert 2-20 characters",
+		"fieldRequiredRangeNumber": "Insert number from 1-1000",
+		"requiredDateNumber": "Insert today's date or later",
+		"fieldRequiredRangePesel": "type 11 numbers",
+		"fieldRequiredRangeCard": "Insert number from 1-9999",
+		"fieldRequiredNumber": "Insert only numbers",
+		"fieldSummary": "Form contains errors"
+	}
+}
